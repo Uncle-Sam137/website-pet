@@ -135,7 +135,7 @@
     .accordion-button {
         font-size: 1.3rem;
         border: none; /* Убираем рамку */
-        background-color: transparent; /* Делаем фон кнопки прозрачным */
+        background-color: #ffffff; /* Делаем фон кнопки прозрачным */
         color: #000; /* Цвет текста */
         font-weight: bold;
     }
@@ -148,7 +148,7 @@
 
     /* Кастомизация фона при раскрытии */
     .accordion-button:not(.collapsed) {
-        background-color: #e9ecef; /* Легкий серый фон при открытии */
+        background-color: #ffffff; /* Легкий серый фон при открытии */
         color: #333333FF;
     }
 
@@ -178,7 +178,7 @@
     <!-- Навигация -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Резюме</a>
+            <a class="navbar-brand" href="#about">Резюме</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -246,7 +246,7 @@
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     Мой сайт
                                 </button>
                             </h2>
@@ -280,7 +280,7 @@
                     <div class="accordion" id="accordionTelegramBot">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingBot">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBot" aria-expanded="true" aria-controls="collapseBot">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBot" aria-expanded="false" aria-controls="collapseBot">
                                     Мой Telegram-бот
                                 </button>
                             </h2>
