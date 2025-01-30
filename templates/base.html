@@ -9,7 +9,7 @@
 
     <style>
          .hero-section {
-        background-image: url('https://i.sstatic.net/SzU7y.jpg'); /* Изображение фона */
+        background-image: url('https://portscaner.ru/Files/Wallpaper/1600x1200/5fc4fa4150bf6.jpg'); /* Изображение фона */
         background-size: cover;
         background-position: center;
         color: white;
@@ -30,7 +30,7 @@
             font-size: 1em;
         }
         .text-background {
-            background-color: rgba(0, 0, 0, 0.7); /* Черный фон с прозрачностью */
+            background-color: rgba(0, 0, 0, 0.9); /* Черный фон с прозрачностью */
             padding: 10px 50px ;
             border-radius: 5px; /* Скругленные углы */
             display: inline-block;
@@ -155,6 +155,19 @@
         background-color: #ffffff; /* Белый фон блока с текстом */
     }
 
+    .offer-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: inline-block; /* Контейнер не растягивается на всю ширину */
+    width: 250px;
+    text-align: left;
+    }
 
     </style>
 </head>
@@ -380,8 +393,58 @@
 
 
 
-    <div class="divider" style="height: 2px; background-color: #dee2e6;"></div>
 
+
+
+{% block content %}
+
+<section id="contact-from" class="bg-dark-custom pb-1 pt-1">
+    <h2 class="section-title pb-1">Отправить предложение о работе</h2>
+    <div class="d-flex justify-content-start section-text text-start flex-column fs-5 about-text w-100 pb-3">
+    <p>
+        Если ваша компания ищет талантливых специалистов, вы можете отправить предложение о работе с помощью этой формы. Заполните поля с информацией о вакансии, чтобы я мог быстро с вами связаться.
+        Я всегда открыт для новых возможностей!
+    </p>
+</div>
+    <div class="container">
+
+
+
+        <div class="d-flex justify-content-center">
+            <div class="offer-card w-100">
+                <!-- Форма для ввода -->
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <!-- Поля формы -->
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 18px;">Название компании</label><br>
+                {{ form.name }}  <!-- Поле с классом custom-input -->
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 18px;">Электронная почта</label><br>
+                {{ form.email }}  <!-- Поле с классом custom-input -->
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" style="font-size: 18px;">Описание вакансии</label><br>
+                {{ form.message }}  <!-- Поле с классом custom-input -->
+            </div>
+                    <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="contact-card w-100" style="font-size: 18px;">Отправить</button>
+        </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Кнопка отправки -->
+
+    </div>
+</section>
+{% endblock %}
+
+    <div class="divider" style="height: 2px; background-color: #dee2e6;"></div>
 
 
     <!-- Контакты -->
@@ -437,6 +500,8 @@
 
         </div>
     </section>
+
+
 
     <!-- Подвал -->
     <footer class="bg-dark text-white text-center py-3">
