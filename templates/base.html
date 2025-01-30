@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт визитка - Python разработчик</title>
+    <!-- Подключение Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+         .hero-section {
+        background-image: url('https://i.sstatic.net/SzU7y.jpg'); /* Изображение фона */
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+        }
+
+        .section-title {
+            color: white;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 3em;
+        }
+        .section-text {
+            color: white;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 1em;
+        }
+        .text-background {
+            background-color: rgba(0, 0, 0, 0.7); /* Черный фон с прозрачностью */
+            padding: 10px 50px ;
+            border-radius: 5px; /* Скругленные углы */
+            display: inline-block;
+        }
+        .bg-dark-custom {
+            background-color: #343a40;
+        }
+        .portfolio-img {
+        width: 100%;
+        height: 200px; /* Устанавливаем фиксированную высоту */
+        object-fit: contain; /* Растягиваем изображение, чтобы оно покрывало область без искажения */
+        }
+
+        .about-text {
+        padding-left: 2rem; /* Меньшие отступы на мобильных */
+        padding-right: 2rem; /* Меньшие отступы на мобильных */
+        }
+
+        /* Для экранов с шириной от 768px и выше (компьютеры) */
+        @media (min-width: 768px) {
+            .about-text {
+                padding-left: 20rem; /* Увеличиваем отступы для экранов компьютеров */
+                padding-right: 20rem; /* Увеличиваем отступы для экранов компьютеров */
+            }
+        }
+
+    .portfolio-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+
+
+    .contact-card {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      display: inline-block; /* Контейнер не растягивается на всю ширину */
+      width: 250px;
+      text-align: center;
+    }
+    .contact-card:hover {
+      background-color: #403c3b; /* Цвет фона при наведении */
+      color: #ffffff; /* Цвет текста при наведении */
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Эффект тени при наведении */
+    }
+
+    .contact-card .icon {
+      font-size: 2rem;
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+    .contact-card:hover .icon {
+      color: #ffffff; /* Цвет иконки при наведении */
+    }
+    .contact-card h4 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+    .contact-card p {
+      color: inherit; /* Наследуем цвет от родительского элемента */
+    }
+    .contact-card a {
+      text-decoration: none;
+      color: inherit; /* Сохраняем обычный цвет текста, не подчеркиваем ссылку */
+      display: block; /* Ссылка растягивает весь блок */
+      width: 100%;
+      height: 100%;
+    }
+    .contact-card:hover a {
+      color: inherit; /* Цвет текста остается обычным, не меняется при наведении */
+      text-decoration: none; /* Убираем подчеркивание */
+    }
+
+
+    .telegram-btn {
+    display: inline-block;
+    font-size: 1.5rem;  /* Увеличенный размер шрифта */
+    padding: 15px 30px;  /* Увеличенные отступы */
+    color: black;  /* Черный текст */
+    background-color: white;  /* Белая кнопка */
+    border: 2px solid black;  /* Черная рамка */
+    border-radius: 8px;  /* Скругленные углы */
+    text-decoration: none;  /* Убираем подчеркивание */
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s; /* Плавное изменение цвета */
+    }
+    .telegram-btn:hover {
+        background-color: #333;  /* Темно-серый фон при наведении */
+        color: white;  /* Белый текст при наведении */
+    }
+
+
+    /* Убираем белую рамку у кнопки */
+    .accordion-button {
+        font-size: 1.3rem;
+        border: none; /* Убираем рамку */
+        background-color: transparent; /* Делаем фон кнопки прозрачным */
+        color: #000; /* Цвет текста */
+        font-weight: bold;
+    }
+
+    /* Эффект при наведении на кнопку */
+    .accordion-button:hover {
+        background-color: #333333FF; /* Легкий серый фон при наведении */
+        color: white; /* Показываем курсор как указатель */
+    }
+
+    /* Кастомизация фона при раскрытии */
+    .accordion-button:not(.collapsed) {
+        background-color: #e9ecef; /* Легкий серый фон при открытии */
+        color: #333333FF;
+    }
+
+    /* Стили для раскрытого блока */
+    .accordion-body {
+        background-color: #ffffff; /* Белый фон блока с текстом */
+    }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Резюме</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#about">Обо мне</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Ключевые навыки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главная секция с фоном -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="text-background">
+                <h1>Я Python разработчик</h1>
+                <h5>Я решаю сложные задачи с помощью кода</h5>
+            </div>
+        </div>
+    </header>
+
+    <!-- О себе -->
+    <section id="about" class="bg-dark-custom pb-1 pt-1">
+        <div class="text-overlay">
+            <h2 class="section-title">Обо мне</h2>
+            <div class="d-flex justify-content-center section-text text-start flex-column fs-5 about-text "><p>
+                    Привет! Меня зовут Семен, я начинающий Python-разработчик, увлеченный созданием эффективных решений для автоматизации и обработки данных. В своей работе я сосредоточен на написании чистого и понятного кода, а также на постоянном совершенствовании своих навыков.
+                </p>
+
+                <p>
+                    Я владею Python и имею опыт работы с асинхронным программированием. Также я хорошо разбираюсь в SQL и использую его для работы с базами данных. Изучил библиотеки для парсинга и автоматизации, такие как BeautifulSoup и Selenium, а для тестирования использую Pytest.</p>
+
+                <p>
+                    В течение года я прошел различные курсы на платформе Stepik, включая все курсы от "Поколение Python" и несколько сторонних курсов, которые помогли мне углубить свои знания и навыки в программировании.</p>
+
+                <div class="container text-center pb-3 pt-2">
+                     <a href="https://stepik.org/users/42457390/profile" target="_blank" class="telegram-btn">
+                        Мой профиль на Stepik
+                    </a>
+                </div>
+
+                <p>
+                    Я стремлюсь применять свои знания для решения реальных задач, а также углублять опыт работы с Python, библиотеками для обработки данных, тестированием и автоматизацией. Ищу возможность работать в команде профессионалов, где смогу развиваться и вносить свой вклад в интересные проекты.</p>
+            </div>
+            </div>
+    </section>
+
+    <section id="my-projects" class="bg-dark-custom pb-1 pt-1">
+    <h2 class="section-title pb-5 pt-1">Мои проекты</h2>
+
+
+                <section id="website-description" class="bg-light-custom pb-2 pt-2">
+                <div class="container">
+
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Мой сайт
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Этот сайт был разработан с использованием фреймворка "Django" и адаптирован с помощью "Bootstrap". Сайт обладает адаптивным дизайном и удобен для просмотра на разных устройствах.</p>
+
+                                    <p>В процессе создания сайта я применил следующие ключевые технологии и подходы:</p>
+                                    <ul>
+                                        <li><strong>Django</strong> — фреймворк для разработки серверной части сайта.</li>
+                                        <li><strong>Bootstrap</strong> — библиотека для создания адаптивных и красивых интерфейсов. Я использовал компоненты Bootstrap для создания сетки, карточек, кнопок и других элементов интерфейса.</li>
+                                        <li><strong>HTML5</strong> и <strong>CSS3</strong> — для структурирования контента и стилизации элементов сайта. Также применены пользовательские стили для более точной настройки внешнего вида.</li>
+                                    </ul>
+
+                                    <p>Целью создания этого сайта было предоставить посетителям удобный способ познакомиться с моими навыками и проектами, а также улучшить визуальное восприятие информации благодаря современным веб-технологиям.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+
+
+
+
+
+                <!-- Телеграм-бот -->
+                <section id="telegram-bot" class="bg-light-custom pb-3 pt-2">
+                <div class="container">
+
+                    <div class="accordion" id="accordionTelegramBot">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingBot">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBot" aria-expanded="true" aria-controls="collapseBot">
+                                    Мой Telegram-бот
+                                </button>
+                            </h2>
+                            <div id="collapseBot" class="accordion-collapse collapse" aria-labelledby="headingBot" data-bs-parent="#accordionTelegramBot">
+                                <div class="accordion-body">
+                                    <p>Я создал многофункциональный Telegram-бот, который сочетает полезные инструменты для работы и увлекательные игры, с целью показать мои навыки в разработке, программировании и использовании Python, асинхронных технологий и взаимодействия с API.</p>
+
+                                    <h5 class="mt-4">Основные функции бота:</h5>
+                                    <ul>
+                                        <li><strong>Генератор паролей</strong>: Бот позволяет пользователю сгенерировать случайный пароль с настройкой длины, что помогает обеспечить безопасность учетных записей.</li>
+                                        <li><strong>Шифрование и расшифровка текста</strong>: Встроенная функция шифрования и расшифровки текста, что может быть полезно для защиты информации.</li>
+                                        <li><strong>Прогноз погоды</strong>: Получение актуальной информации о погоде в любом городе, что помогает пользователю планировать свои дела.</li>
+                                        <li><strong>Игры</strong>: Для отдыха и развлечения я добавил несколько мини-игр, чтобы повысить вовлеченность пользователей.</li>
+                                    </ul>
+
+                                    <h5 class="mt-4">Почему это важно?</h5>
+                                    <ul>
+                                        <li><strong>Развитие навыков</strong>: Этот бот продемонстрировал мои способности в области работы с <strong>API</strong>, <strong>асинхронным программированием</strong>, <strong>защищенными методами хранения данных</strong> и созданием <strong>пользовательских интерфейсов</strong> в <strong>Telegram</strong>.</li>
+                                        <li><strong>Пользовательский опыт</strong>: Сочетание полезных функций и развлечений делает бота не только функциональным, но и интересным для пользователей.</li>
+                                        <li><strong>Масштабируемость</strong>: Бот легко расширяем с возможностью добавления новых функциональных возможностей.</li>
+                                    </ul>
+
+                                    <h5 class="mt-4">Чем может быть полезен робот для бизнеса?</h5>
+                                    <p>Если ваш бизнес требует обработки данных, взаимодействия с пользователями или автоматизации, такой бот может стать полезным инструментом для:</p>
+                                    <ul>
+                                        <li><strong>Сбора информации</strong> от пользователей,</li>
+                                        <li><strong>Автоматизации процессов</strong>,</li>
+                                        <li><strong>Обучения сотрудников</strong> с помощью игр и викторин.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+
+
+                <div class="container text-center">
+                     <a href="https://t.me/ВАШ_БОТ" target="_blank" class="telegram-btn">
+                        🚀 Запустить бота
+                    </a>
+                </div>
+    </section>
+
+    <!--<div class="divider" style="height: 2px; background-color: #dee2e6;"></div>-->
+
+
+
+    <!-- Портфолио -->
+    <section id="portfolio" class="bg-dark-custom pb-5 pt-1">
+        <div class="container">
+            <h2 class="section-title pb-5">Ключевые навыки</h2>
+
+            <div class="row g-4">
+                <div class="col-md-2">
+                    <div class="card">
+                        <img src="https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp?fit=1920%2C1920&ssl=1" class="card-img-top portfolio-img" alt="Проект 1">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><p><p>Python</p></p></h5>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3161/3161158.png" class="card-img-top portfolio-img" alt="Проект 2">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><p><p>SQL</p></p></h5>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card">
+                        <img src="https://s3.amazonaws.com/clarityfm-production/attachments/6605/default/django.png?1442839704" class="card-img-top portfolio-img" alt="Проект 3">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><p><p>Django</p></p></h5>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card">
+                        <img src="https://trunin.com/ru/2021/07/python-call-async-from-sync/images/asyncio.jpeg" class="portfolio-img" alt="Проект 3">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Асинхронный код</h5>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Pytest_logo.svg/2048px-Pytest_logo.svg.png" class="card-img-top portfolio-img" alt="Проект 3">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><p><p>Pytest</p></p></h5>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2048px-Git_icon.svg.png" class="card-img-top portfolio-img" alt="Проект 3">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><p><p>git</p></p></h5>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="divider" style="height: 2px; background-color: #dee2e6;"></div>
+
+
+
+    <!-- Контакты -->
+    <section id="contact" class="bg-dark-custom pb-5 pt-1">
+        <div class="container">
+            <h2 class="section-title pb-5">Контакты</h2>
+            <div class="container">
+      <div class="d-flex flex-nowrap justify-content-center">
+        <!-- Контакт 1: Номер телефона (с переходом по ссылке) -->
+        <div class="contact-card">
+          <a href="tel:+79151995845">
+            <i class="fas fa-phone-alt icon"></i>
+            <h4>Телефон</h4>
+            <p>+7 915 199 58 45</p>
+          </a>
+        </div>
+
+        <!-- Контакт 2: Email (с переходом по ссылке) -->
+        <div class="contact-card">
+          <a href="mailto:Semen.Kolesnik@yandex.ru">
+            <i class="fas fa-envelope icon"></i>
+            <h4>Email</h4>
+            <p>Semen.Kolesnik@yandex.ru</p>
+          </a>
+        </div>
+
+        <!-- Контакт 3: Ссылка на HeadHunter (с переходом по ссылке) -->
+        <div class="contact-card">
+          <a href="https://hh.ru/resume/d12167ecff0c9689c70039ed1f796c51476c4e" target="_blank">
+            <i class="fab fa-headphones-alt icon"></i>
+            <h4>HeadHunter</h4>
+            <p>Мое резюме на HeadHunter</p>
+          </a>
+        </div>
+
+        <!-- Контакт 4: Ссылка на Huber (с переходом по ссылке) -->
+        <div class="contact-card">
+          <a href="https://www.huber.com" target="_blank">
+            <i class="fab fa-uber icon"></i>
+            <h4>Huber</h4>
+            <p>Мой профиль на Huber</p>
+          </a>
+        </div>
+        <div class="contact-card">
+          <a href="https://github.com/Uncle-Sam137" target="_blank">
+            <i class="fab fa-uber icon"></i>
+            <h4>GitHub</h4>
+            <p>Примеры моих проектов на  GitHub</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Все права защищены.</p>
+    </footer>
+
+    <!-- Подключение Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
