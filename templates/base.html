@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сайт визитка - Python разработчик</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/5968/5968350.png" type="image/x-icon">
+    <title>Семен Колесник - Python разработчик</title>
+
     <!-- Подключение Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -216,7 +218,7 @@
                 </p>
 
                 <p>
-                    Я владею Python и имею опыт работы с асинхронным программированием. Также я хорошо разбираюсь в SQL и использую его для работы с базами данных. Изучил библиотеки для парсинга и автоматизации, такие как BeautifulSoup и Selenium, а для тестирования использую Pytest.</p>
+                    Я владею Python и имею опыт работы с асинхронным программированием. Также я хорошо разбираюсь в SQL и использую его для работы с базами данных. Изучил библиотеки для парсинга и автоматизации, такие как BeautifulSoup и Selenium. Aiogram для написания Telegram-ботов. Для тестирования использую Pytest.</p>
 
                 <p>
                     В течение года я прошел различные курсы на платформе Stepik, включая все курсы от "Поколение Python" и несколько сторонних курсов, которые помогли мне углубить свои знания и навыки в программировании.</p>
@@ -233,10 +235,11 @@
             </div>
     </section>
 
+    <!-- Мои проекты -->
     <section id="my-projects" class="bg-dark-custom pb-1 pt-1">
     <h2 class="section-title pb-5 pt-1">Мои проекты</h2>
 
-
+                <!-- Сайт -->
                 <section id="website-description" class="bg-light-custom pb-2 pt-2">
                 <div class="container">
 
@@ -326,7 +329,7 @@
 
 
 
-    <!-- Портфолио -->
+    <!-- Ключевые навыки -->
     <section id="portfolio" class="bg-dark-custom pb-5 pt-1">
         <div class="container">
             <h2 class="section-title pb-5">Ключевые навыки</h2>
@@ -395,54 +398,54 @@
 
 
 
+    <!-- Отправить предложение о работе -->
+    {% block content %}
 
-{% block content %}
-
-<section id="contact-from" class="bg-dark-custom pb-1 pt-1">
-    <h2 class="section-title pb-1">Отправить предложение о работе</h2>
-    <div class="d-flex justify-content-start section-text text-start flex-column fs-5 about-text w-100 pb-3">
-    <p>
-        Если ваша компания ищет талантливых специалистов, вы можете отправить предложение о работе с помощью этой формы. Заполните поля с информацией о вакансии, чтобы я мог быстро с вами связаться.
-        Я всегда открыт для новых возможностей!
-    </p>
-</div>
-    <div class="container">
-
-
-
-        <div class="d-flex justify-content-center">
-            <div class="offer-card w-100">
-                <!-- Форма для ввода -->
-                <form method="POST">
-                    {% csrf_token %}
-
-                    <!-- Поля формы -->
-            <div class="mb-3">
-                <label class="form-label" style="font-size: 18px;">Название компании</label><br>
-                {{ form.name }}  <!-- Поле с классом custom-input -->
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label" style="font-size: 18px;">Электронная почта</label><br>
-                {{ form.email }}  <!-- Поле с классом custom-input -->
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label" style="font-size: 18px;">Описание вакансии</label><br>
-                {{ form.message }}  <!-- Поле с классом custom-input -->
-            </div>
-                    <div class="d-flex justify-content-center mt-4">
-            <button type="submit" class="contact-card w-100" style="font-size: 18px;">Отправить</button>
-        </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Кнопка отправки -->
-
+    <section id="contact-from" class="bg-dark-custom pb-1 pt-1">
+        <h2 class="section-title pb-1">Отправить предложение о работе</h2>
+        <div class="d-flex justify-content-start section-text text-start flex-column fs-5 about-text w-100 pb-3">
+        <p>
+            Если ваша компания ищет талантливых специалистов, вы можете отправить предложение о работе с помощью этой формы. Заполните поля с информацией о вакансии, чтобы я мог быстро с вами связаться.
+            Я всегда открыт для новых возможностей!
+        </p>
     </div>
-</section>
-{% endblock %}
+        <div class="container">
+
+
+
+            <div class="d-flex justify-content-center">
+                <div class="offer-card w-100">
+                    <!-- Форма для ввода -->
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <!-- Поля формы -->
+                <div class="mb-3">
+                    <label class="form-label" style="font-size: 18px;">Название компании</label><br>
+                    {{ form.name }}  <!-- Поле с классом custom-input -->
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" style="font-size: 18px;">Электронная почта</label><br>
+                    {{ form.email }}  <!-- Поле с классом custom-input -->
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" style="font-size: 18px;">Описание вакансии</label><br>
+                    {{ form.message }}  <!-- Поле с классом custom-input -->
+                </div>
+                        <div class="d-flex justify-content-center mt-4">
+                <button type="submit" class="contact-card w-100" style="font-size: 18px;">Отправить</button>
+            </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Кнопка отправки -->
+
+        </div>
+    </section>
+    {% endblock %}
 
     <div class="divider" style="height: 2px; background-color: #dee2e6;"></div>
 
